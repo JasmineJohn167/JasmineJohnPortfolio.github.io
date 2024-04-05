@@ -1,0 +1,853 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Miniport by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+		<style>
+.nav {
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list li:first-child {
+    margin-left: 380px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+	margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: white;
+}
+	
+	.timeline {
+		position: relative;
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+			
+	/* The actual timeline (the vertical ruler) */
+	.timeline::after {
+		content: '';
+		position: absolute;
+		width: 6px;
+		background-color: black;
+		top: 0;
+		bottom: 100px;
+		left: 50%;
+		margin-left: -3px;
+	}
+			
+	.timeline .container {
+		position: relative;
+		width: 35%;
+		padding: 10px 40px;
+	}
+			
+	.timeline .container::after {
+		content: '';
+		position: absolute;
+		right: -93px;
+		top: 20px;
+		width: 25px;
+		height: 25px;
+		background-color: white;
+		z-index: 1;
+		border: 4px solid black;
+		border-radius: 60%;
+	}
+			
+	/* Place the container to the left */
+	.timeline .left {
+		left: -290px;
+	}
+			
+	/* Place the container to the right */
+	.timeline .right {
+		left: 230px;
+	}
+			
+	.timeline .left::before {
+		content: "";
+		position: absolute;
+		top: 25px;
+				right: -35px;
+				margin-top: -10px;
+				width: 0;
+				height: 0;
+				border-top: 15px solid transparent;
+				border-bottom:15px solid transparent;
+				border-left: 15px solid black;
+			}
+			
+	.timeline .right::before {
+				content: "";
+				position: absolute;
+				top: -1px;
+				left: 25px;
+				margin-top: 20px;
+				width: 0;
+				height: 0;
+				border-top: 15px solid transparent;
+				border-bottom: 15px solid transparent;
+				border-right: 15px solid black;
+			}
+			
+    .timeline .container.right::after {
+				left: -33px;
+			}
+
+	.timeline .container.right.ibm {
+    left: auto;
+    right: -370px; /* Adjust this value as needed */
+}
+
+	.timeline .container.right.ibm::after {
+    left: -33px; /* Adjust this value as needed */
+}
+			
+	.timeline .content {
+				position: relative;
+				padding: 20px 20px;
+				border: 2px solid black; /* Outline border color */
+				border-radius: 1px;
+			}
+			
+			/* Media queries - Responsive timeline on screens less than 600px wide */
+			@media screen and (max-width: 600px) {
+				/* Place the timelime to the left */
+			.timeline::after {
+					left: 31px;
+				}
+			
+				/* Full-width containers */
+			.container {
+					width: 100%;
+					padding-left: 70px;
+					padding-right: 25px;
+				}
+			
+				/* Make sure that all arrows are pointing leftwards */
+			.container::before {
+					left: 60px;
+					border: medium solid black;
+					border-width: 10px 10px 10px 0;
+					border-color: transparent white transparent transparent;
+				}
+			
+				/* Make sure all circles are at the same spot */
+			.left::after, .right::after {
+					left: 15px;
+				}
+			
+				/* Make all right containers behave like the left ones */
+				.right {
+					left: 0%;
+				}
+			}
+      /* Hide entire timeline for core competencies */
+.timeline-container.hide-timeline {
+    display: none;
+}
+			
+.button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 0px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-bottom:
+}
+
+.button1 {
+  background-color: black; 
+  color: white; 
+  border: 2px solid black;
+}
+
+.button1:hover {
+  background-color: white;
+  color: black;
+}
+
+.flip-card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    perspective: 1000px;
+	
+}
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+  
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: white;
+  color: black;
+  border: 2px solid black; /* Outline border color */
+  border-radius: 1px;
+  text-align: center;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: black;
+  border: 2px solid black; /* Outline border color */
+  transform: rotateY(180deg);
+  text-align: left;
+}
+/* Add this CSS to ensure uniform size for boxes and images */
+#Projects .box {
+    height: 600px;
+	border: 2px solid black; /* Outline border color */
+  border-radius: 1px;
+}
+
+.project-image {
+    height: 150px; /* Adjust this value as needed */
+    width: 100%;
+    display: block;
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+.category {
+    display: inline-block; /* Display categories side by side */
+    vertical-align: top; /* Align categories to the top */
+    margin-right: 150px; /* Add some spacing between categories */
+    text-align: center;
+}
+
+h2 {
+    margin: 0 auto;
+	width: 50%;
+	text-align: center;
+}
+h3 {
+    margin-left: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.skill {
+    position: relative; /* Ensure the tooltip is positioned relative to the skill */
+}
+
+.skill-label {
+    display: inline-block;
+    width: 100px; /* Adjust width as needed */
+    font-size: 15px;
+}
+
+.skill-bar {
+    display: inline-block;
+    width: 200px;
+    height: 15px;
+    background-color: #f2f2f2;
+    border: 1px solid #869577;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.skill-level {
+    height: 15px;
+    background-color: black;
+    border-radius: 3px;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid black; /* Added border property */
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    left: 0%;
+    transform: translateX(-50%);
+    width: 200px;
+    font-size: 15px;
+}
+
+.skill:hover .tooltip {
+    visibility: visible; /* Show tooltip on hover */
+}
+
+/* Additional styles for skill groups */
+.skill-groups {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill-group {
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 20px; /* Add spacing between skill groups */
+}
+.section {
+    position: relative;
+    padding-top: 100px; /* Ensure space for image */
+    background-color: #f0f0f0;
+  }
+  .section img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+  }
+  .flex-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.image-container {
+    flex: 0 0 auto; /* Prevent image from growing */
+    margin-left: 250px; /* Adjust as needed */
+}
+
+.content-container {
+    flex: 1; /* Allow content to grow */
+}
+/* Style for contact form */
+.social-icons {
+            list-style: none;
+          
+            margin-left: 0px;
+			margin-top: 0px;
+        }
+        .social-icons li {
+            display: inline-block;
+            margin-right: 50px;
+        }
+        .social-icons li:last-child {
+            margin-right: 0;
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: #333;
+            font-size: 40px;
+        }
+
+	</style>
+	</head>
+
+	<body>
+		<nav id="nav">
+			<ul  class="nav-list">
+				<li><a href="#Home">Home</a></li>
+				<li><a href="#AboutMe">About Me</a></li>
+				<li><a href="#Projects">Projects</a></li>
+				<li><a href="#Certifications">Certifications</a></li>
+				<li><a href="#Contact">Contact</a></li>
+			</ul>
+		</nav>
+
+		
+		
+		<!-- Home -->
+		<article id="Home" class="wrapper style1" style="background-color: white;">
+			<div class="flex-container">
+				<div class="image-container">
+					<img src="images/john.png" alt="" style="width: 350px; border-radius: 50%;">
+				</div>
+				<div class="content-container">
+					<!-- Your content here -->
+					<h2 style="margin-left: -15px; margin-bottom: 20px;">Jasmine John</h2>
+					<p style="margin-left: -5px; margin-right: 450px; margin-bottom: 10px; font-size: 18px; color: black;">Data Analytics Professional</p>
+					<p style="margin-left: -35px; margin-right: 410px; margin-bottom: 10px; color: black;">Hello! Glad to see you here!</p>
+					<p style="margin-left: -15px; margin-right: 350px; color: black;">Take a peek at my portfolio to see what I've been working on!</p>
+				</div>
+			</div>
+		</article>
+
+		<!-- About Me (Education and Work Experience) -->
+    <article id="AboutMe" class="wrapper style1 about-me-section">
+		<header style="margin-top: 0px;">
+			<h2 style="font-size: 20px; margin-bottom: -30px;">Education</h2>
+		</header>
+		<p>Flip the cards for more information</p>
+		<div class="timeline-container">
+			<div class="timeline">
+				<div class="container left">
+					<div class="flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front" style="line-height: normal;">
+								<img src="images/north.png" alt="Image Description" style="margin-top: 30px; margin-bottom: 10px">
+								<h3 style="font-size: 15px;">Northeastern University, Boston, MA</h3>
+								<p style="font-size: 15px; margin-bottom: 15px">Masters in Data Analytics</p>
+								<p style="font-size: 15px;">Sept 2022 - May 2024</p>
+								<p style="font-size: 15px;">GPA: 3.7/4.0</p>
+							</div>
+							<div class="flip-card-back">
+								<ul style="line-height: normal; padding: 20px;">
+									<p style="font-size: 15px;">Relevant Coursework</p>
+									<li style="font-size: 15px;">Introduction to Data Analytics</li>
+									<li style="font-size: 15px;">Probability Theory and Statistics</li>
+									<li style="font-size: 15px;">Intermediate Analytics</li>
+									<li style="font-size: 15px;">Data Warehousing and SQL</li>
+									<li style="font-size: 15px;">Data Mining and Applications</li>
+									<li style="font-size: 15px;">Communication and Visualization for Data Analytics</li>
+									<li style="font-size: 15px;">Analytics and Artificial Intelligence</li>
+									<li style="font-size: 15px;">Database Management System</li>
+									<li style="font-size: 15px;">Project Management</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container right">
+					<div class="flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front" style="line-height: normal;">
+								<img src="images/reva.png" alt="Image Description" style="margin-top: 30px; margin-bottom: 10px">
+								<h3 style="font-size: 15px;">REVA University, India</h3>
+								<p style="font-size: 15px; margin-bottom: 15px">B.Tech in Computer Science and Engineering</p>
+								<p style="font-size: 15px;">Aug 2016 - Aug 2020</p>
+								<p style="font-size: 15px;">GPA: 3.5/4.0</p>
+							</div>
+							<div class="flip-card-back">
+								<ul style="line-height: normal; padding: 20px;">
+									<p style="font-size: 15px;">Relevant Coursework</p>
+									<li style="font-size: 15px;">Python programming</li>
+									<li style="font-size: 15px;">C and Java Programming</li>
+									<li style="font-size: 15px;">Object Oriented Programming using C++</li>
+									<li style="font-size: 15px;">Machine Learning and Applications</li>
+									<li style="font-size: 15px;">Big Data and Hadoop</li>
+									<li style="font-size: 15px;">Web Technology</li>
+									<li style="font-size: 15px;">C# and .Net</li>
+									<li style="font-size: 15px;">Intelligent Agents</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<hr>
+    <header style="margin-top: 0%;">
+        <h2 style="font-size: 20px; margin-bottom: -30px;">Work Experience</h2>
+    </header>
+	<p>Flip the cards for more information</p>
+    <div class="timeline-container">
+		<div class="timeline">
+			<div class="container left">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front" style="line-height: normal;">
+						<img src="images/kyndryl.png" alt="Image Description" style=" margin-top: 30px; margin-bottom: 10px">
+                        <h3 style="font-size: 20px;">Kyndryl, India</h3>
+                        <p style="font-size: 15px; margin-bottom: 15px"> Security Delivery Specialist - Identity and Access Management</p>
+                        <p style="font-size: 15px;">Sept 2021 - Sept 2022</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul style="line-height: normal; padding: 20px;">
+                            <li style="font-size: 13px;">Managed and optimized platform roles for over 500 instances, resulting in a 98% customer retention rate and increased efficiency in instance creation/deletion, alias and binding management, credential management, and access management processes </li>
+								<li style="font-size: 13px;">Collaborated with the Service Management team to proactively address recurring complaints, resulting in a 25% reduction in escalations  </li>
+								<li style="font-size: 13px;">Utilized Python and SQL to perform statistical data analysis on enterprise sources to detect outliers and to impute missing values, leading to a 40% increase in incident resolution efficiency </li>
+								<li style="font-size: 13px;">Optimized client ID creation and user request management, reducing turnaround time by 20% and enhancing overall efficiency and productivity </li>
+								<li style="font-size: 13px;">Developed custom Tableau dashboards seamlessly integrated with SQL for real-time visibility, facilitating data-driven decision-making and reducing response time for critical incidents </li>
+								
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container right ibm">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front" style="line-height: normal;">
+						<img src="images/ibm.png" alt="Image Description" style=" margin-top: 30px; margin-bottom: 10px">
+                        <h3 style="font-size: 20px;">IBM, India</h3>
+                        <p style="font-size: 15px; margin-bottom: 15px">Associate Technical Engineer - Identity and Access Management</p>
+                        <p style="font-size: 15px;">Sept 2020 - Sept 2021</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <ul style="line-height: normal; padding: 20px;">
+							<li style="font-size: 13px;">Oversaw client support tickets for storage systems, servers, hardware modifications, software modifications, application modifications, and network system modifications; successfully resolved over 200 tickets per month while maintaining IT infrastructure stability </li>
+							<li style="font-size: 13px;">Coordinated with cross-functional teams to provide technical assistance to customers via phone, email, and chat, achieving an average response time of 3 minutes for customer support tickets, resulting in a 10% improvement in customer satisfaction </li>
+							<li style="font-size: 13px;">Achieved an exceptional 98% customer retention rate through skillful management of platform roles, including instance creation/deletion, alias and binding management, credential management, and access management </li>
+							<li style="font-size: 13px;">Deployed data visualization techniques using Microsoft Office Excel to present complex data sets in a clear and concise manner, increasing understanding and facilitating informed decision-making by stakeholders </li>
+					</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+	<!-- Skills begin here -->
+<article>
+    <hr>
+    <h2 style="font-size: 20px;">My Skills</h2>
+    <p style="text-align: center; color: black;">1 - Basic | 2 – Entry-Level | 3 - Intermediate | 4 - Advanced | 5 - Expert</p>
+    <p style="text-align: center; margin-top: 0px;">Hover cursor over bars for more information</p>
+    <div class="skill-groups" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <div style="margin-left: 20px;">
+            <div class="skill-groups" style="width: 300px;">
+                <h3 style="font-size: 15px; margin-left: -20px;">Programming Languages</h3>
+                <div class="skill">
+                    <label class="skill-label" for="sql" style="font-size: 15px; color: black;">SQL - 4</label> <br>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                    <div class="tooltip">2 Years Experience</div>
+                </div>
+
+                <div class="skill">
+                    <label class="skill-label" for="python" style="font-size: 15px; color: black;">Python - 4</label> <br>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                    <div class="tooltip">2 Years Experience (Pandas, NumPy, Scikit – learn, Matplotlib, SciPy, Scrapy, PyTorch, TensorFlow)</div>
+                </div>
+
+                <div class="skill">
+                    <label class="skill-label" for="R" style="font-size: 15px; color: black;">R - 4</label> <br>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                    <div class="tooltip">2 Years Experience (dplyr, ggplot2, shiny, tidyr, plyr, tidyverse)</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-left: 20px;">
+            <div>
+                <h3 style="font-size: 15px; margin-left: -60px;">Data Analysis</h3>
+            </div>
+            <div class="skill">
+                <label class="skill-label" for="dw" style="font-size: 15px; color: black; white-space: nowrap;">Data Wrangling - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">Pandas, NumPy, Scipy, Scikit-learn</div>
+            </div>
+
+            <div class="skill">
+                <label class="skill-label" for="dv" style="font-size: 15px; color: black; white-space: nowrap;">Data Visualization - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">Plotly, Matplotlib, Seaborn</div>
+            </div>
+
+            <div class="skill">
+                <label class="skill-label" for="excel" style="font-size: 15px; color: black;">Excel - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">Power Query, VLOOKUP, VBA, Pivot tables</div>
+            </div>
+
+            <div class="skill">
+                <label class="skill-label" for="stats" style="font-size: 15px; color: black; white-space: nowrap;">Statistics - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">Descriptive, Inferential</div>
+            </div>
+        </div>
+
+        <div style="margin-left: 20px;">
+            <h3 style="font-size: 15px; margin-left: -20px;">Data Visualization Tools</h3>
+            <div class="skill">
+                <label class="skill-label" for="tableau" style="font-size: 15px; color: black;">Tableau - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <label class="skill-label" for="power" style="font-size: 15px; color: black;">Power BI - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">DAX, M</div>
+            </div>
+        </div>
+
+        <div style="margin-left: 20px;">
+			<h3 style="font-size: 15px; margin-left: -40px;">Databases and Web</h3>
+			<div class="skill">
+                <label class="skill-label" for="data" style="font-size: 15px; color: black;">Databases - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">MS SQL Server, Snowflake, Oracle, MySQL, MongoDB, Postgres SQL, Amazon Redshift, SAS</div>
+            </div>
+            
+            <div class="skill">
+                <label class="skill-label" for="front" style="font-size: 15px; color: black;">Front End - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">HTML, CSS, JavaScript</div>
+            </div>
+
+            
+        </div>
+
+
+        <div style="margin-left: 20px;">
+            <h3 style="font-size: 15px; margin-left: -40px;">Machine Learning</h3>
+            <div class="skill">
+                <label class="skill-label" for="sup" style="font-size: 15px; color: black; white-space: nowrap;">Supervised ML - 4</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;"></div>
+                </div>
+                <div class="tooltip">Classification, Regression and Time Series</div>
+            </div>
+
+            <div class="skill">
+                <label class="skill-label" for="unsup" style="font-size: 15px; color: black; white-space: nowrap;">Unsupervised ML - 3</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%;"></div>
+                </div>
+                <div class="tooltip">K-Means, PCA</div>
+            </div>
+
+            <div class="skill">
+                <label class="skill-label" for="nlp" style="font-size: 15px; color: black;">NLP - 3</label> <br>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%;"></div>
+                </div>
+                <div class="tooltip">LDA, NMF,LSA</div>
+            </div>
+        </div>
+
+      
+    </div>
+</article>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+		<!-- Projects -->
+			<article id="Projects" class="wrapper style2">
+				<div class="container">
+					<header>
+						<h2 style="font-size: 20px;">Projects</h2>
+					</header>
+					<div class="row aln-center">
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px; text-align: center;">Amazon Web Scraping</h3><br>
+								<img src="images/ama.png" class="project-image">
+								<br>
+								<ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Used Python's BeautifulSoup and Selenium libraries for web scraping on Amazon product pages, extracting essential information such as product titles and prices, navigating dynamic web elements and parsing HTML content for comprehensive data.</li><br>
+									<li><b>Tools used:</b> Python, BeautifulSoup, Selenium, Web Scraping, Data Extraction, CSV Handling, Pandas, Data Manipulation</li>
+						
+								</ul>
+								<a href="https://github.com/JasmineJohn167/Python-Projects/blob/main/Amazon%20Web%20Scraping.ipynb" target="_blank" class="button button1">View Project</a>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px;">Boston Property Model Building</h3><br>
+								<img src="images/bos.png" class="project-image">
+								<br>
+								<ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Utilized Python's pandas for importing, cleaning Boston property data, visualized with matplotlib/seaborn, applied Random Forest and Lasso Regression for prediction, and optimized models via GridSearchCV. </li><br>
+									<li><b>Tools used:</b> Python (NumPy, pandas, matplotlib, seaborn, scikit-learn), Jupyter Notebook, Google Colab</li>
+								</ul>
+								
+								<a href="https://github.com/JasmineJohn167/Python-Projects/blob/main/Boston_property_model_building.ipynb" target="_blank" class="button button1">View Project</a>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px;">Movie Correlation in Python</h3><br>
+								<img src="images/corr.png" class="project-image"><br>
+								<ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Analyzed movie dataset for correlation between budget, gross earnings, and other features using Python libraries pandas, seaborn, and matplotlib.</li><br>
+									<li><b>Tools used:</b> Python, pandas, seaborn, numpy, matplotlib.</li>
+								</ul><br>
+								<a href="https://github.com/JasmineJohn167/Python-Projects/blob/main/Movie%20Correlation%20Project.ipynb" target="_blank" class="button button1">View Project</a>
+							</section>
+
+							
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px;">Tableau</h3>
+								<img src="images/t.png" class="project-image" style="width: 300px; height: 150px;">
+								<p> <ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Explore my Tableau dashboards and visualizations here.</li><br>
+									<li><b>Tools used:</b> Data blending, Joins, Aggregations, Calculated fields, Parameters, Filters, Sets, Groups, Hierarchies, Trend lines</li>
+								</ul><br>
+								<a href="https://public.tableau.com/app/profile/jasmine.john4515/vizzes" target="_blank" class="button button1">View Project</a>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px;">Power BI</h3>
+								<img src="images/pow.png" class="project-image">
+								<p> <ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Explore the Data Professional Survey Breakdown Interactive Dashboard here.</li><br>
+									<li><b>Tools used:</b> Power Query, Data Modeling, Visualization</li>
+								</ul><br>
+								<a href="https://app.powerbi.com/view?r=eyJrIjoiMjlmNzQ3MDktMWRiNS00NWVlLWFmYzgtMTRhOTQxYWZkOGEzIiwidCI6ImE4ZWVjMjgxLWFhYTMtNGRhZS1hYzliLTlhMzk4YjkyMTVlNyIsImMiOjN9" target="_blank" class="button button1">View Project</a>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px;">TaxGPT: Chatbot</h3>
+								<img src="images/tax.png" class="project-image">
+								<p> <ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Utilizing NLP techniques and machine learning models, our project focuses on text analysis and clustering. By implementing LDA, NMF, and LSA algorithms, we aim to extract meaningful topics from text to enhance text preprocessing.</li><br>
+									<li><b>Tools used:</b> Scikit-learn, Gensim, NLTK, LDA, NMF, LSA, lemmatization, n-grams, Silhouette Score, Davies-Bouldin Index, Calinski-Harabasz Index</li>
+								</ul>
+								<a href="https://github.com/JasmineJohn167/TaxGPT/blob/main/taxGPT_final.ipynb" target="_blank" class="button button1">View Project</a>
+							</section>
+						</div>
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<h3 style="font-size: 15px;">Global CO2 </h3>
+								<img src="images/cc.png" class="project-image">
+								<p> <ul style="font-size: 13px; line-height:1.2; text-align: left; color: black;">
+									<li>Utilized R programming to analyze CO2 emissions data from 2011 to 2021. Employed various packages for data manipulation, visualization, and analysis.</li><br>
+									<li><b>Tools used: </b>Packages: FSAdata, magrittr, dplyr, tidyr, plyr, tidyverse, plotrix, ggplot2, scales</li>
+								</ul>
+								<a href="https://github.com/JasmineJohn167/SQL-Projects/blob/main/Global%20CO2%20Forecast%20and%20Source%20Analysis%20.R" target="_blank" class="button button1">View Project</a>
+							</section>
+						</div>
+					</div>
+				</div>
+			</article>
+
+
+            <!-- Certifications -->
+				<article id="Certifications" class="wrapper style1" style="background-color: white;">
+					<header>
+						<h2 style="font-size: 20px;">Certifications</h2>
+					</header>
+					<div class="flex-container" style="border: 2px solid black; width: 80%; height: 350px; margin-left: 130px;">
+						<div class="image-container">
+							<img src="images/go.png" alt="" style="width: 400px; height: 300px; border: 2px black; margin-left: -180px;">
+						</div>
+						<div class="content-container" style="font-size: 15px;">
+							<!-- Your content here -->
+							<p style="margin-left: -80px; margin-right: 0px; margin-bottom: 10px; color: black;"><b>Google Data Analytics Professional Certificate</b></p>
+							<p style="margin-left: -5px; margin-right: 50px; color: black;"><b>Skills:</b> SQL, R, Data Aggregation, Data Calculations, Data Cleaning, Spreadsheets, Presentation, Problem Solving  </p>
+							<a href="https://www.credly.com/badges/773ad0bc-1989-493a-b97e-dc2d31123737/linked_in?t=s1r9uo" target="_blank" class="button button1" style="margin-left: -80px;">View Certificate</a>
+						</div>
+					</div>
+                    <br>
+					<br>
+                    <div class="flex-container" style="border: 2px solid black; width: 80%; height: 350px; margin-left: 130px;">
+						<div class="image-container">
+							<img src="images/sql.jpeg" alt="" style="width: 450px; height: 250px; border: 2px black; margin-left: -180px;">
+						</div>
+						<div class="content-container" style="font-size: 15px;">
+							<!-- Your content here -->
+							<p style="margin-left: -100px; margin-right: 0px; margin-bottom: 10px; color: black;"><b>SQL Gold Badge from HackerRank</b></p>
+							<p style="margin-left: -15px; margin-right: 50px; color: black;"><b>Skills:</b> Advanced Select, Aggregation, Advanced Join  </p>
+							<a href="https://www.hackerrank.com/profile/JasmineJohn" target="_blank" class="button button1" style="margin-left: -100px;">View Certificate</a>
+						</div>
+					</div>
+                    <br>
+					<br>
+                    <div class="flex-container" style="border: 2px solid black; width: 80%; height: 350px; margin-left: 130px;">
+						<div class="image-container">
+							<img src="images/dv.png" alt="" style="width: 350px; height: 350px; border: 2px black; margin-left: -180px;">
+						</div>
+						<div class="content-container" style="font-size: 15px;">
+							<!-- Your content here -->
+							<p style="margin-left: -80px; margin-right: 0px; margin-bottom: 10px; color: black;"><b>Data Visualization and Storytelling</b></p>
+							<p style="margin-left: -5px; margin-right: 50px; color: black;"><b>Skills:</b> Tableau, Qlik, Data Visualization, Information Design, Presentation  </p>
+							<a href="https://www.credly.com/badges/2391cbb6-98ba-452c-8ec5-0d506efba97a/linked_in?t=rwk9ym" target="_blank" class="button button1" style="margin-left: -20px;" >View Certificate</a>
+						</div>
+					</div>
+
+				</article>
+
+
+
+		<!-- Contact Form -->
+<!-- Contact Form -->
+<article id="Contact" class="wrapper style1" style="background-color: white;">
+        <header>
+            <h2 style="font-size: 20px;">Contact me </h2>
+        </header>
+		<ul class="social-icons">
+			<li/Users/jasminejohn/Desktop/go.png><a href="https://www.linkedin.com/in/jasminejohn31/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			<li><a href="https://github.com/JasmineJohn167" target="_blank"><i class="fab fa-github"></i></a></li>
+			<li><a href="mailto:JasmineJ167190@gmail.com"><i class="fas fa-envelope"></i></a></li>
+			<li><a href="https://www.hackerrank.com/profile/JasmineJohn" target="_blank"><i class="fab fa-hackerrank"></i></a></li>
+		</ul>
+</article>
+<br>
+<br>
+<br>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
